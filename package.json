@@ -1,0 +1,23 @@
+{
+  "name": "devlog",
+  "version": "0.1.0",
+  "description": "A developer's blog template",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo loltest",
+    "start": "python -m http.server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibasis0801/devlog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Shibasis Patnaik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shibasis0801/devlog/issues"
+  },
+  "homepage": "https://github.com/shibasis0801/devlog#readme"
+}
