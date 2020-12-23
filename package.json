@@ -4,8 +4,9 @@
   "description": "A developer's blog template",
   "main": "index.html",
   "scripts": {
+    "install": "npm i -g browser-sync typescript",
     "test": "echo loltest",
-    "start": "python -m http.server"
+    "start": "browser-sync start --server --files \"index.html, styles/*.css, code/*.js\"browser-sync start --server --files \"index.html, styles/*.css, code/*.js\""
   },
   "repository": {
     "type": "git",

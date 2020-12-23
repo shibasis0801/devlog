@@ -1,1 +1,8 @@
-console.log("Hello, Please use this template to create your own blogs and/or learn some basic web development");
+import {attachNavLinks, establishNavigation} from "./pages/navigation.js";
+
+function init() {
+    attachNavLinks();
+    establishNavigation();
+}
+
+init();
