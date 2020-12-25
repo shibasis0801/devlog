@@ -4,7 +4,7 @@ function createElement(tag, options= {}, children= []) {
         .forEach(([key, value]) => {
             element[key] = value
         });
-    children.forEach(child => element.appendChild(child));
+    children.forEach(child => child && element.appendChild(child));
     return element;
 }
 
@@ -36,6 +36,10 @@ export function p(options, textContent) {
     return createElement('p', options, [text(textContent)]);
 }
 
+export function img(options) {
+    return createElement('img', options);
+}
+
 export function checkbox(options) {
     return createElement(
         'input',
@@ -48,29 +52,6 @@ export function checkbox(options) {
 
 export function br() {
     return createElement('br');
-}
-
-/**
- * Inserts renderSeparator HTML between HTML elements if an empty string is detected
- *
- * @param {object[]} dataArray
- * @param {function(object): HTMLElement} renderFn
- * @param {function(): HTMLElement} renderSeparator
- * @return {HTMLElement[]}
- */
-export function withSeparators(dataArray, renderFn, renderSeparator) {
-    const elements = []
-    for (let idx = 0; idx < dataArray.length; ++idx) {
-        const data = dataArray[idx];
-        if (data) {
-            elements.push(renderFn(data));
-        }
-        else {
-            elements.push(renderSeparator());
-        }
-
-    }
-    return elements;
 }
 
 class Container {

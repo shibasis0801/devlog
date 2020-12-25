@@ -1,6 +1,12 @@
 // All data must be in the same structure.
 import {isObject} from "../../common/isObject.js";
 
+function style(payload) {
+    return Object.entries(payload)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(";")
+}
+
 /** Three options are available for content,
  * Text -> Paragraph
  * Blank -> LineBreak
@@ -16,21 +22,61 @@ const data = [
             {
                 text: "So what do you say, are you excited to learn this ?",
                 style: "text-align: center"
+            },
+            {
+                src: "https://images.freeimages.com/images/large-previews/4dc/street-1366583.jpg",
+                style: style({
+                    width: "400px",
+                    height: "300px",
+                    "margin-top": "12px",
+                    "border-radius": "10%"
+                })
             }
         ]
     }
 ];
 
+export const ContentType = {
+    TEXT: "TEXT",
+    STYLED_TEXT: "STYLED_TEXT",
+    IMAGE: "IMAGE",
+    BLANK: "BLANK"
+}
 
-
-
-export function getOptions(content) {
+export function getAnnotatedContent(content) {
     if (isObject(content)) {
-        return {
-            style: content.style
+        if (content.src) {
+            return {
+                type: ContentType.IMAGE,
+                ...content
+            }
+        }
+        else if (content.text) {
+            return {
+                type: ContentType.STYLED_TEXT,
+                ...content
+            }
+        }
+        else {
+            return null;
         }
     }
-    else return null;
+    else if (typeof content === "string") {
+        if (content) {
+            return {
+                type: ContentType.TEXT,
+                text: content
+            }
+        }
+        else {
+            return {
+                type: ContentType.BLANK
+            }
+        }
+    }
+    else {
+        return null;
+    }
 }
 
 export default data;
