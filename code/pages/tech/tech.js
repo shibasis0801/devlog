@@ -1,20 +1,20 @@
-import {div, h3, h4, ul, li, br, p, withSeparators} from "../../common/components.js";
+import {div, h, ul, li, br, p, withSeparators} from "../../common/components.js";
 import data, {getOptions} from "./data.js";
 
 export default function Tech() {
     return div({
         className: "tech"
     }, [
-        h3({}, "My Experiments"),
+        h({}, "My Experiments", 2),
         ul({}, data.map(item =>
             li({ className: "card" }, [
-                h4({}, item.heading),
+                h({}, item.heading, 3),
                 ...withSeparators(
                     item.content,
                     (content) => {
                         const options = getOptions(content);
                         return options ?
-                            p(getOptions(content), content.text) :
+                            p(options, content.text) :
                             p({}, content);
                     },
                     br

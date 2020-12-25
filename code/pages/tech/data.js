@@ -21,6 +21,9 @@ const data = [
     }
 ];
 
+
+
+
 export function getOptions(content) {
     if (isObject(content)) {
         return {

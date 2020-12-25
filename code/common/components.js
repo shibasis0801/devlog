@@ -28,12 +28,8 @@ export function li(options, children) {
     return createElement('li', options, children);
 }
 
-export function h3(options, textContent) {
-    return createElement('h3', options, [text(textContent)]);
-}
-
-export function h4(options, textContent) {
-    return createElement('h4', options, [text(textContent)]);
+export function h(options, textContent, level = 1) {
+    return createElement(`h${level}`, options, [text(textContent)]);
 }
 
 export function p(options, textContent) {

@@ -6,7 +6,7 @@
   "scripts": {
     "install": "npm i -g browser-sync typescript",
     "test": "echo loltest",
-    "start": "browser-sync start --server --files \"index.html, styles/*.css, code/*.js\"browser-sync start --server --files \"index.html, styles/*.css, code/*.js\""
+    "start": "browser-sync start --server --files=\"**/*\""
   },
   "repository": {
     "type": "git",
